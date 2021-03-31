@@ -19,8 +19,8 @@ Summary: A TLS protocol implementation
 License: GPLv3+ and LGPLv2+
 Group: System Environment/Libraries
 URL: http://www.gnutls.org/
-Source0: ftp://ftp.gnutls.org/gcrypt/gnutls/v3.6/%{realname}-%{version}.tar.xz
-Source1: ftp://ftp.gnutls.org/gcrypt/gnutls/v3.6/%{realname}-%{version}.tar.xz.sig
+Source0: https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/%{realname}-%{version}.tar.xz
+Source1: https://www.gnupg.org/ftp/gnutls/v3.6/%{realname}-%{version}.tar.xz.sig
 #Source2: gpgkey-1F42418905D8206AA754CCDC29EE58B996865171.gpg
 Patch1:	gnutls-3.2.7-rpath.patch
 Patch2: gnutls-3.6.4-no-now-guile.patch
