@@ -249,7 +249,7 @@ autoreconf -v
     --enable-dane \
 %endif
     --disable-rpath \
-    --with-default-priority-string="@SYSTEM"
+    --with-default-priority-string="NORMAL"
 
 %make_build
 
