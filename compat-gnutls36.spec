@@ -285,9 +285,10 @@ sed -r -i 's#^(includedir=.*)#\1/%{name}#' $RPM_BUILD_ROOT%{_libdir}/%{name}/pkg
 #cp -f %{SOURCE1} $RPM_BUILD_ROOT/%{_bindir}/libgnutls-config
 # rm -f $RPM_BUILD_ROOT%{_mandir}/man3/*srp*
 # rm -f $RPM_BUILD_ROOT%{_infodir}/dir
-# all 
+# all
 rm $RPM_BUILD_ROOT%{_mandir}/man3/*
 rm $RPM_BUILD_ROOT%{_infodir}/*
+rm -f $RPM_BUILD_ROOT/usr/share/locale/*/*/gnutls.mo
 %if %{with dane}
 mv $RPM_BUILD_ROOT%{_libdir}/pkgconfig/gnutls-dane.pc $RPM_BUILD_ROOT%{_libdir}/%{name}/pkgconfig/
 sed -r -i 's#^(includedir=.*)#\1/%{name}#' $RPM_BUILD_ROOT%{_libdir}/%{name}/pkgconfig/gnutls-dane.pc
@@ -296,7 +297,7 @@ rm -f $RPM_BUILD_ROOT/%{_libdir}/pkgconfig/gnutls-dane.pc
 %endif
 
 
-%find_lang gnutls
+# %find_lang gnutls
 
 %check
 make check %{?_smp_mflags}
@@ -312,7 +313,8 @@ make check %{?_smp_mflags}
 %postun guile -p /sbin/ldconfig
 %endif
 
-%files -f gnutls.lang
+# %files -f gnutls.lang gnutls.lang clashes with default pkg
+%files
 %{_libdir}/libgnutls.so.30*
 %if %{with fips}
 %{_libdir}/.libgnutls.so.30*.hmac
